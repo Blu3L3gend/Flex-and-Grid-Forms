@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Form</title>
+  </head>
+  <style>
+    .GForm {
+      display: grid;
+      grid-template-columns: auto 1fr 1fr;
+      grid-auto-flow: row dense;
+      grid-gap: 0.8em;
+      background: pink;
+      padding: 1.2em;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /*name, email, phone*/
+    .GForm > label {
+      grid-column: 1;
+      grid-row: auto;
+    }
+
+    /*fname,email,phone and sub bttn*/
+    .GForm > input,
+    .GForm > button {
+      grid-column: 2;
+      grid-row: auto;
+      padding: 1em;
+      border: none;
+    }
+
+    .GForm textarea {
+      min-height: 70%;
+      width: 100%;
+      border: none;
+    }
+
+    #comment-box {
+      grid-column: 3;
+      grid-row: span 3;
+    }
+
+    /*submit button*/
+    .GForm > button {
+      grid-column: 2 / 4;
+    }
+  </style>
+  <form class="GForm">
+    <label for="Fname">Name: </label>
+    <input type="text" name="customer_name" id="Fname" required />
+    <label for="Eaddress">Email: </label>
+    <input type="email" name="email_address" id="Eaddress" />
+    <label for="phone">Phone: </label>
+    <input type="tel" name="phone" id="phone" />
+    <div id="comment-box">
+      <label for="comments">Comment: </label>
+      <textarea name="comments" id="comments" maxlength="500"></textarea>
+    </div>
+    <button>Submit</button>
+  </form>
+  <body></body>
+</html>
